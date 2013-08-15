@@ -3,8 +3,8 @@ var Repository = require('./lib/repository.js');
 
 var repo = new Repository();
 
-repo.on('ready', function(posts) {
-  console.log(posts)
+repo.on('ready', function(documents) {
+  console.log(documents)
 });
 
 repo.collect();
