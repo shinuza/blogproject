@@ -27,9 +27,12 @@ test('title', function() {
 });
 
 test('created date', function() {
-  assert.equal(metadoc().ctime(), '1 January, 2013');
+  assert.equal(metadoc().ctime(), '1 January, 2013 13:37');
 });
 
+test('updated date', function() {
+  assert.equal(metadoc().mtime(), '25 December, 2013 12:34');
+});
 
 suite('Plain');
 
@@ -37,6 +40,10 @@ test('title', function() {
   assert.equal(plaindoc().title(), 'A plain document title');
 });
 
-test('title', function() {
+test('created date', function() {
   assert.equal(type(plaindoc().ctime()), 'Date');
+});
+
+test('updated date', function() {
+  assert.equal(type(plaindoc().mtime()), 'Date');
 });
