@@ -34,6 +34,10 @@ test('updated date', function() {
   assert.equal(metadoc().mtime(), '25 December, 2013 12:34');
 });
 
+test('author', function() {
+  assert.deepEqual(metadoc().author(), ['John Doe', 'Jane Doe']);
+});
+
 suite('Plain');
 
 test('title', function() {
@@ -46,4 +50,8 @@ test('created date', function() {
 
 test('updated date', function() {
   assert.equal(type(plaindoc().mtime()), 'Date');
+});
+
+test('author', function() {
+  assert.deepEqual(plaindoc().author(), []);
 });
