@@ -1,6 +1,6 @@
 default: test
 
 test:
-	mocha -u qunit
+	mocha -u qunit --reporter spec
 
 .PHONY: test

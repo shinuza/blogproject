@@ -3,6 +3,8 @@ var helpers = require('../lib/helpers');
 var groupBy = helpers.groupBy;
 
 
+suite('helpers');
+
 test("groupBy function", function() {
 
   var groups = groupBy([
