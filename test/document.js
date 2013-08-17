@@ -38,6 +38,10 @@ test('author', function() {
   assert.deepEqual(metadoc().author(), ['John Doe', 'Jane Doe']);
 });
 
+test('keywords', function() {
+  assert.deepEqual(metadoc().keywords(), ["blog","test","anything","goes"]);
+});
+
 suite('Plain');
 
 test('title', function() {
@@ -54,4 +58,8 @@ test('updated date', function() {
 
 test('author', function() {
   assert.deepEqual(plaindoc().author(), []);
+});
+
+test('keywords', function() {
+  assert.deepEqual(plaindoc().keywords(), []);
 });
