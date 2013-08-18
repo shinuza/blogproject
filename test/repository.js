@@ -13,7 +13,7 @@ suite('Repository');
 
 test('searching', function(done) {
   repo('./sandbox', null, function(documents) {
-    assert.equal(documents.length, 2);
+    assert.equal(documents.length, 3);
     done();
   });
 });
@@ -21,6 +21,20 @@ test('searching', function(done) {
 test('searching wrong dir', function(done) {
   repo('../lib', null, function(documents) {
     assert.equal(documents.length, 0);
+    done();
+  });
+});
+
+test('searching wrong ext', function(done) {
+  repo('./sandbox', '.rst', function(documents) {
+    assert.equal(documents.length, 0);
+    done();
+  });
+});
+
+test('fetching all document by years', function(done) {
+  repo('./sandbox', null, function(documents) {
+    assert.deepEqual(Object.keys(this.byYear()), ['2010', '2013']);
     done();
   });
 });
