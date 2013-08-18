@@ -3,26 +3,24 @@ var resolve = require('path').resolve;
 
 var Repository = require('../lib/repository.js');
 
-function repo(path, extension) {
-  return new Repository(resolve(__dirname, path), extension);
+function repo(path, extension, fn) {
+  var r = new Repository(resolve(__dirname, path), extension);
+  r.on('ready', fn);
+  r.collect();
 }
 
 suite('Repository');
 
 test('searching', function(done) {
-  var r = repo('./sandbox');
-  r.on('ready', function(documents) {
+  repo('./sandbox', null, function(documents) {
     assert.equal(documents.length, 2);
     done();
   });
-  r.collect();
 });
 
 test('searching wrong dir', function(done) {
-  var r = repo('../lib');
-  r.on('ready', function(documents) {
+  repo('../lib', null, function(documents) {
     assert.equal(documents.length, 0);
     done();
   });
-  r.collect();
 });
