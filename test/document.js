@@ -27,11 +27,11 @@ test('title', function() {
 });
 
 test('created date', function() {
-  assert.equal(metadoc().ctime(), '1 January, 2013 13:37');
+  assert.equal(metadoc().ctime().getTime(), 1357043820000);
 });
 
 test('updated date', function() {
-  assert.equal(metadoc().mtime(), '25 December, 2013 12:34');
+  assert.equal(metadoc().mtime().getTime(), 1387971240000);
 });
 
 test('author', function() {
